@@ -42,7 +42,7 @@ function triggerAutomation() {
 }
 
 function printClosed() {
-  print("Window is opened, will toggle the output");
+  print("Window is closed, will toggle the output");
   Shelly.call("Switch.Set", { id: 0, on: false });
 }
 
@@ -58,13 +58,13 @@ let CONFIG = {
       cond: {
         Window: 0,
       },
-      action: triggerAutomation,
+      action: printClosed,
     },
     {
       cond: {
         Window: 1,
       },
-      action: printClosed,
+      action: triggerAutomation,
     },
   ],
 };
