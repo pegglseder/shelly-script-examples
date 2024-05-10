@@ -36,13 +36,13 @@
 // You can rely only on the addresss filtering and forego device name matching
 
 // CHANGE HERE
-function triggerAutomation() {
-  print("Window is opened, will toggle the output");
+function reportWindowOpen() {
+  print("Window is opened, will switch on the output");
   Shelly.call("Switch.Set", { id: 0, on: true });
 }
 
-function printClosed() {
-  print("Window is opened, will toggle the output");
+function reportWindowClosed() {
+  print("Window is closed, will switch off the output");
   Shelly.call("Switch.Set", { id: 0, on: false });
 }
 
@@ -58,13 +58,13 @@ let CONFIG = {
       cond: {
         Window: 0,
       },
-      action: triggerAutomation,
+      action: reportWindowClosed,
     },
     {
       cond: {
         Window: 1,
       },
-      action: printClosed,
+      action: reportWindowOpen,
     },
   ],
 };
